@@ -1,1 +1,7 @@
+#ignore loyout code::blocks
 *.layout
+#ignore objet
+*.[oa]
+
+bin
+obj
