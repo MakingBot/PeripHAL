@@ -34,6 +34,7 @@
 			<Add option="-mmcu=atmega64" />
 			<Add option="-Wall" />
 			<Add option="-DF_CPU=16000000UL" />
+			<Add option="-DAVR" />
 		</Compiler>
 		<Linker>
 			<Add option="-mmcu=atmega64" />
@@ -51,9 +52,6 @@
 		<Unit filename="HAL.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="I2C.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="Init.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -68,7 +66,6 @@
 		<Unit filename="include/Command.h" />
 		<Unit filename="include/DALI2C.h" />
 		<Unit filename="include/HAL.h" />
-		<Unit filename="include/I2C.h" />
 		<Unit filename="include/PeriphMaster.h" />
 		<Unit filename="include/TWI_slave.h" />
 		<Unit filename="include/globaletypedef.h" />
@@ -76,6 +73,7 @@
 		<Unit filename="include/isr.h" />
 		<Unit filename="include/mapping.h" />
 		<Unit filename="include/pwm.h" />
+		<Unit filename="include/utility.h" />
 		<Unit filename="isr.c">
 			<Option compilerVar="CC" />
 		</Unit>
