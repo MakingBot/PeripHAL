@@ -68,11 +68,16 @@ PERIPH_LED_PORT|= 0x07;
 
 uint set_color(uint R,uint G,uint B,uint Alpha)
 {
+uint erreur = 0;
+if (Alpha == 0)
+TIMSK &= !_BV(TOIE1);
+else
+TIMSK |= _BV(TOIE1);
 
-uint erreur=0;
-OCR1A   = R*Alpha/41;
-OCR1B   = G*Alpha/41;
-OCR1C   = B*Alpha/41;
+
+OCR1A   = R*Alpha/63;
+OCR1B   = G*Alpha/63;
+OCR1C   = B*Alpha/63;
 
 return erreur;
 }

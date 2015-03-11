@@ -6,4 +6,7 @@
 bin
 obj
 Debug
+Release
 *~
+*.bak
+.settings

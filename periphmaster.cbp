@@ -72,9 +72,13 @@
 		<Unit filename="include/init.h" />
 		<Unit filename="include/isr.h" />
 		<Unit filename="include/mapping.h" />
+		<Unit filename="include/protocole.h" />
 		<Unit filename="include/pwm.h" />
 		<Unit filename="include/utility.h" />
 		<Unit filename="isr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="protocole.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="pwm.c">

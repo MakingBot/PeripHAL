@@ -12,7 +12,13 @@
 #define GPIOBITLENGTH 2
 #define GPIOPORTLENGTH 2
 #define CURRENTCHANNELLENGTH 2
+//macros
 
+ #define GPIO(num,val)\
+ if (!val )\
+ GPIO ## num ## _PORT &= ~(1<<GPIO ## num ## BIT);\
+ else\
+ GPIO ## num ## _PORT |=(1<<GPIO ## num ## BIT);
 
 /******************************************
  *  définition des type enuméré
@@ -78,6 +84,7 @@ typedef struct
     sData data;
     uchar num; //identifiant unique du port voir si utile
     eStatus statu;
+	ePortType type;
 } sPort;
 
 
@@ -110,7 +117,7 @@ sPort* initCom(const ePortType porttype,const uchar PortNum,const sParam param);
 *
 *  \details Details
 */
-void closeCom(sPort * port);
+//void closeCom(sPort * port);
 
 /**
 *  \brief récuopére les données du port
@@ -170,5 +177,16 @@ uchar newNumCom();
 *  \details Details
 */
 uchar numCom(const sPort * port);
+
+/**
+ *  \brief Brief
+ *
+ *  \param [in] port port to change
+ *  \param [in] bit bit in port to change
+ *  \return nothing
+ *
+ *  \details Details
+ */void setGpioBit(const uchar numgpio,eBool val);
+
 
 #endif //a bouger en fin de fichier

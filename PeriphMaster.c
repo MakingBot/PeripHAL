@@ -6,8 +6,8 @@
 
 
 #include <stdint.h>
-#include "include/HAL.h" // Hardward abstraction layer
-
+#include "include/HAL.h" // Hardware abstraction layer
+#include "include/globaletypedef.h"
 #include "include/PeriphMaster.h"
 #include "include/utility.h"
 #include "include/init.h"
@@ -15,7 +15,7 @@
 #include "include/isr.h" //driver of interruption
 
 
-
+extern struct data system_data;
 
 /**
  *  \brief main
@@ -25,11 +25,11 @@
  *  \details Details
  */int main()
 {
+
     HAL_cli();
      init();
      pwm_init();
      isr_init();
-//     initCom(); //to implemente
     HAL_sei();
 
    while(1)

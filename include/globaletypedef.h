@@ -9,11 +9,15 @@
 
 typedef unsigned char uchar ;
 typedef unsigned int uint  ;
+
+
+
 typedef enum
 {
 false = 0,
 true =1
 }eBool;
+
 
 
  #endif

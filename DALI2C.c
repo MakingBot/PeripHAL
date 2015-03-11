@@ -65,8 +65,8 @@
 
   // Initialise TWI module for slave operation. Include address and/or enable General Call.
   TWI_Slave_Initialise( (unsigned char)((TWI_slaveAddress<<TWI_ADR_BITS) | (TRUE<<TWI_GEN_BIT) ));
-
-    TWI_Start_Transceiver();
+	
+    TWI_Start_Transceiver_With_Data( &TWI_slaveAddress, 1 );
 	return getStatusI2CSlave();
 
  }

@@ -63,7 +63,14 @@ void closeCom(sPort * port )
 */
 uchar* getData(const sPort *port)
 {
-    return 0; //erreur???
+    switch(port->type)
+    {
+    case I2CSLAVE :
+        return getDataI2CSlave(port); //general call always activated
+    default:
+        break;
+    }
+return NULL;
 }
 
 /**
@@ -75,7 +82,16 @@ uchar* getData(const sPort *port)
 *  \details Details
 */eStatus setData(const sPort *port)
 {
-    return 0;
+switch(port->type)
+    {
+    case I2CSLAVE :
+        setDataI2CSlave(port); //general call always activated
+        break;
+    default:
+        break;
+    }
+return (getStatus(port));
+   
 }
 /**
 *  \brief renvoie la longueur de la donnée
@@ -119,7 +135,7 @@ uint getDataLength(const sPort *port)
 */
 eStatus getStatus(const sPort *port)
 {
-    return 0;
+    return port->statu;
 }
 
 /**
@@ -151,3 +167,31 @@ uchar numCom(const sPort *port)
 {
     return port->num;
 }
+
+/**
+ *  \brief Brief
+ *  
+ *  \param [in] port port to change
+ *  \param [in] bit bit in port to change
+ *  \return nothing
+ *  
+ *  \details Details
+ */void setGpioBit(const uchar numgpio,eBool val)
+ {
+   switch(numgpio)
+	 {
+	 case 0 :
+	 GPIO(0,val); //c'est une macro
+	 break;
+	 case 1 :
+	 GPIO(1,val); //c'est une macro le premier caractére est substituer et ne peut donc par etre variable
+	 break;
+	 case 2 :
+	 GPIO(2,val); //c'est une macro
+	 break;
+	 default:
+	 break;
+	 }
+ 
+ 
+ }

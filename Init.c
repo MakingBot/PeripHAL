@@ -6,7 +6,7 @@
 
 void periph_power_on(void)
 {
-//    PERIPH_POWERUP_PORT |= (1<<PERIPH_POWERUP_PIN);
+    PERIPH_POWERUP_PORT |= (1<<PERIPH_POWERUP_PIN);
 }
 
 void init(void)

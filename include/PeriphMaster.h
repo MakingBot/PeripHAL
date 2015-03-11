@@ -4,6 +4,7 @@
  */
  #ifndef PERIPHMASTER_H_INCLUDED
 #define PERIPHMASTER_H_INCLUDED
+#include "globaletypedef.h"
 
 //#define F_CPU 1000000UL // 1 MHz
 #define CYAN		0x45	// 0b01000010
@@ -26,6 +27,17 @@
 #define BUTTON_PUSH_DDR					DDRE
 #define BUTTON_PUSH_PORT				PINE
 #define BUTTON_PUSH_PIN					PIN4
+#define ADRESSE							0x48
+
+#include "mapping.h" //mapping g�n�rique
 
 
+
+struct data
+ {
+	eBool periphstate[19];  //�tat des p�riph�riques true allum� false �teint
+	uchar periphcurrent[19]; //valeur de courant des p�riph�rique
+	eBool power; //�tat du syst�me true allum� false �teint
+
+ }system_data;
 #endif // MAIN_H_INCLUDED
