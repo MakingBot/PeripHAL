@@ -13,13 +13,13 @@
 #define GPIOPORTLENGTH 2
 #define CURRENTCHANNELLENGTH 2
 //macros
-
+/*
  #define GPIO(num,val)\
  if (!val )\
  GPIO ## num ## _PORT &= ~(1<<GPIO ## num ## BIT);\
  else\
  GPIO ## num ## _PORT |=(1<<GPIO ## num ## BIT);
-
+*///supression car devenue inutile avec gpio.c
 /******************************************
  *  définition des type enuméré
  */
