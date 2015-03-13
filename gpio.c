@@ -19,7 +19,7 @@ setGPIO(uchar gpionum)
 if(gpionum < (sizeof(GPIO)/3)) //vérification de la validité de la gpio
 {
 uchar *porttemp = GPIO[gpionum][0];
-GPIO[gpionum][0]|=(_BV(GPIO[gpionum][2]); //revient a faire PORTX|=(_BV(PORTBIT)); c-a-d mettre a zero PORTBIT de PORTX
+GPIO[gpionum][0]|=(1<<(GPIO[gpionum][2])); //revient a faire PORTX|=(_BV(PORTBIT)); c-a-d mettre a zero PORTBIT de PORTX
 }
 }
 /**
@@ -35,6 +35,6 @@ resetGPIO(uchar gpionum)
   if(gpionum < (sizeof(GPIO)/3))//vérification de la validité de la gpio
   {
   uchar *porttemp = GPIO[gpionum][0];
-  porttemp &=~(_BV(GPIO[gpionum][2]); //revient a faire PORTX&=~(_BV(PORTBIT)); c-a-d mettre a zero PORTBIT de PORTX
+  porttemp &=~((1<<(GPIO[gpionum][2]))); 
   }
 }
