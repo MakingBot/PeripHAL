@@ -178,7 +178,7 @@ uchar numCom(const sPort *port)
  *  \details Details
  */void setGpioBit(const uchar numgpio,eBool val)
  {
-   switch(numgpio)
+   /*switch(numgpio)
 	 {
 	 case 0 :
 	 GPIO(0,val); //c'est une macro
@@ -191,7 +191,11 @@ uchar numCom(const sPort *port)
 	 break;
 	 default:
 	 break;
-	 }
+	 }*/
+	if (val==true)
+	setGPIO(numgpio);
+	else
+	resetGPIO(numgpio);
  
  
  }
