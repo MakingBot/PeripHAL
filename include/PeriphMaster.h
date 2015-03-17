@@ -5,6 +5,7 @@
  #ifndef PERIPHMASTER_H_INCLUDED
 #define PERIPHMASTER_H_INCLUDED
 #include "globaletypedef.h"
+#include <avr/io.h>
 
 //#define F_CPU 1000000UL // 1 MHz
 #define CYAN		0x45	// 0b01000010
@@ -29,7 +30,7 @@
 #define BUTTON_PUSH_PIN					PIN4
 #define ADRESSE							0x48
 
-#include "mapping.h" //mapping g�n�rique
+
 
 
 

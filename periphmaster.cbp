@@ -63,15 +63,18 @@
 		</Unit>
 		<Unit filename="bin/Debug/periphmaster.lss" />
 		<Unit filename="bin/Release/periphmaster.lss" />
+		<Unit filename="gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="include/Command.h" />
 		<Unit filename="include/DALI2C.h" />
 		<Unit filename="include/HAL.h" />
 		<Unit filename="include/PeriphMaster.h" />
 		<Unit filename="include/TWI_slave.h" />
 		<Unit filename="include/globaletypedef.h" />
+		<Unit filename="include/gpio.h" />
 		<Unit filename="include/init.h" />
 		<Unit filename="include/isr.h" />
-		<Unit filename="include/mapping.h" />
 		<Unit filename="include/protocole.h" />
 		<Unit filename="include/pwm.h" />
 		<Unit filename="include/utility.h" />

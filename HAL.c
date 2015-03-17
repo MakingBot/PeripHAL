@@ -7,7 +7,6 @@
 #include <string.h>
 #include "include/globaletypedef.h"
 #include "include/HAL.h"
-#include "include/mapping.h"
 #include "include/init.h"
 #include "include/DALI2C.h"  //wrapper for driver I2C come fram atmel
 #include "include/isr.h" //driver of interruption
@@ -91,7 +90,7 @@ switch(port->type)
         break;
     }
 return (getStatus(port));
-   
+
 }
 /**
 *  \brief renvoie la longueur de la donnée
@@ -170,11 +169,11 @@ uchar numCom(const sPort *port)
 
 /**
  *  \brief Brief
- *  
+ *
  *  \param [in] port port to change
  *  \param [in] bit bit in port to change
  *  \return nothing
- *  
+ *
  *  \details Details
  */void setGpioBit(const uchar numgpio,eBool val)
  {
@@ -196,6 +195,6 @@ uchar numCom(const sPort *port)
 	setGPIO(numgpio);
 	else
 	resetGPIO(numgpio);
- 
- 
+
+
  }
