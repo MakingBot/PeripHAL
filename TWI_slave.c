@@ -39,7 +39,10 @@
 #include <avr/interrupt.h>
 
 #include "include/TWI_slave.h"
-
+#ifdef __DEBUG__
+#include "include/globaletypedef.h"
+#include "include/pwm.h"
+#endif
 
 
 static unsigned char TWI_buf[TWI_BUFFER_SIZE];     // Transceiver buffer. Set the size in the header file
@@ -64,6 +67,9 @@ start the TWI.
 ****************************************************************************/
 void TWI_Slave_Initialise( unsigned char TWI_ownAddress )
 {
+#ifdef __DEBUG__
+//set_color(10,0,0,255);
+#endif // __DEBUG__
   TWAR = TWI_ownAddress;                            // Set own TWI slave address. Accept TWI General Calls.
   TWCR = (1<<TWEN)|                                 // Enable TWI-interface and release TWI pins.
          (0<<TWIE)|(0<<TWINT)|                      // Disable TWI Interupt.
@@ -170,6 +176,10 @@ application.
 ****************************************************************************/
 ISR(TWI_vect)
 {
+#ifdef __DEBUG__
+set_color(255,0,0,255);
+#endif // __DEBUG__
+
   static unsigned char TWI_bufPtr;
 
   switch (TWSR)

@@ -18,9 +18,9 @@ void isr_init()
 EIMSK |=_BV(INT4); //validation interruption  4
 EICRB |=_BV(ISC40)|_BV(ISC41); // on rising edge
 //action périodique sur timer 0 timer1 utilisé par pwm
-TCCR0 |= _BV(CS00)|_BV(CS01) |_BV(CS02);//normal mode presacaler /1024 inter toutes le 16ms@16MHz
-TIMSK|= _BV(TOIE0); //interruption sut timer0 overflot validé
-return;
+/*TCCR0 |= _BV(CS00)|_BV(CS01) |_BV(CS02);//normal mode presacaler /1024 inter toutes le 16ms@16MHz
+TIMSK|= _BV(TOIE0); //interruption sut timer0 overflot validé*/
+
 }
 
 /**
@@ -44,6 +44,7 @@ cli();
     }
 
     PERIPH_POWERUP_PORT &= ~(1<<PERIPH_POWERUP_PIN);
+      system_data.power=false;
 	while(1) //fonction ou on ne doit aller souf si le cavalier est mis ou transistor en cc
 	{
 		PERIPH_LED_PORT = 0x02; //rouge et off
@@ -63,7 +64,7 @@ cli();
  *  \details à chaque interruption on passe à l'action suivante
  *  peut étre interrompu
  */
- ISR(TIMER0_OVF_vect)
+ /*ISR(TIMER0_OVF_vect)
 {
 	static eState state;
 	switch (state)
@@ -82,4 +83,4 @@ cli();
 		break;
 	}
 
-}
+}*/

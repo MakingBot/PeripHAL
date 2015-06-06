@@ -6,12 +6,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include "include/globaletypedef.h"
+#include "include/PeriphMaster.h"
 #include "include/HAL.h"
 #include "include/init.h"
 #include "include/DALI2C.h"  //wrapper for driver I2C come fram atmel
 #include "include/isr.h" //driver of interruption
 #include "include/pwm.h"
 #include "include/utility.h" //wrapper
+
 
 
 
@@ -177,7 +179,7 @@ uchar numCom(const sPort *port)
  *  \details Details
  */void setGpioBit(const uchar numgpio,eBool val)
  {
-   /*switch(numgpio)
+   switch(numgpio)
 	 {
 	 case 0 :
 	 GPIO(0,val); //c'est une macro
@@ -190,11 +192,11 @@ uchar numCom(const sPort *port)
 	 break;
 	 default:
 	 break;
-	 }*/
-	if (val==true)
+	 }
+	/*if (val==true)
 	setGPIO(numgpio);
 	else
-	resetGPIO(numgpio);
+	resetGPIO(numgpio);*/
 
 
  }

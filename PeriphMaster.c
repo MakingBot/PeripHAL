@@ -13,6 +13,7 @@
 #include "include/init.h"
 #include "include/pwm.h"
 #include "include/isr.h" //driver of interruption
+#include "include/protocole.h"
 
 
 extern struct data system_data;
@@ -30,17 +31,29 @@ extern struct data system_data;
      init();
      pwm_init();
      isr_init();
+     #ifdef __DEBUG__
+    set_color(0,0,255,255); //a priori 25ms d'execution
+    #endif // __DEBUG__
+
+    // launchCom();
     HAL_sei();
 
    while(1)
    {
 
-        set_color(255,0,0,255); //a priori 25ms d'execution
-        HALdelay_ms(10); //need to be wrapped
-        set_color(0,0,255,255); //a priori 25ms d'execution
-        HALdelay_ms(10);
-        set_color(255,255,255,0); //a priori 25ms d'execution
-        HALdelay_ms(10);
+        getRefresh();
+  #ifdef __DEBUG__
+    set_color(0,0,255,255); //a priori 25ms d'execution
+    #endif // __DEBUG__
+
+        compute();
+
+        setRefresh();
+        HALdelay_ms(100);
+  #ifdef __DEBUG__
+    set_color(255,0,0,255); //a priori 25ms d'execution
+    #endif // __DEBUG__
+
 
 
    }

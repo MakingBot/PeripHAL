@@ -14,6 +14,7 @@
 				<Option compiler="avr-gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-D__DEBUG__" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -23,7 +24,8 @@
 				<Option type="5" />
 				<Option compiler="avr-gcc" />
 				<Compiler>
-					<Add option="-Os" />
+					<Add option="-O3" />
+					<Add option="-D__DEBUG__" />
 				</Compiler>
 			</Target>
 			<Environment>
@@ -63,16 +65,12 @@
 		</Unit>
 		<Unit filename="bin/Debug/periphmaster.lss" />
 		<Unit filename="bin/Release/periphmaster.lss" />
-		<Unit filename="gpio.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="include/Command.h" />
 		<Unit filename="include/DALI2C.h" />
 		<Unit filename="include/HAL.h" />
 		<Unit filename="include/PeriphMaster.h" />
 		<Unit filename="include/TWI_slave.h" />
 		<Unit filename="include/globaletypedef.h" />
-		<Unit filename="include/gpio.h" />
 		<Unit filename="include/init.h" />
 		<Unit filename="include/isr.h" />
 		<Unit filename="include/protocole.h" />
@@ -92,6 +90,9 @@
 			<debugger>
 				<remote_debugging>
 					<options conn_type="0" serial_baud="115200" ip_address="localhost" ip_port="4242" additional_cmds="break main" additional_shell_cmds_before="avarice -g -C --erase --program --file periphmaster.hex --part atmega64 :4242&#x0A;" />
+				</remote_debugging>
+				<remote_debugging target="Debug">
+					<options conn_type="0" serial_baud="115200" ip_address="localhost" ip_port="4242" additional_cmds="break main" />
 				</remote_debugging>
 			</debugger>
 		</Extensions>

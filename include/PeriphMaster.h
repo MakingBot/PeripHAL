@@ -30,10 +30,13 @@
 #define BUTTON_PUSH_PIN					PIN4
 #define ADRESSE							0x48
 
+#define GPIO0_PORT                  PORTC
+#define GPIO1_PORT                  PORTC
+#define GPIO2_PORT                  PORTC
 
-
-
-
+#define GPIO0BIT                    PORT0
+#define GPIO1BIT                    PORT1
+#define GPIO2BIT                    PORT2
 struct data
  {
 	eBool periphstate[19];  //�tat des p�riph�riques true allum� false �teint

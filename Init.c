@@ -2,11 +2,13 @@
 #include <avr/io.h>
 #include "include/init.h"
 #include "include/PeriphMaster.h"
+#include "include/globaletypedef.h"
 
 
 void periph_power_on(void)
 {
     PERIPH_POWERUP_PORT |= (1<<PERIPH_POWERUP_PIN);
+    system_data.power=true;
 }
 
 void init(void)
